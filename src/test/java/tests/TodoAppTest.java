@@ -24,10 +24,8 @@ public class TodoAppTest {
         options.setPlatformName("Android");
         options.setAutomationName("UiAutomator2");
 
-        // Замените на package вашего собранного TODO-приложения
-        options.setAppPackage("com.example.android.architecture.blueprints.todoapp");
+        options.setAppPackage("com.example.android.architecture.blueprints.main");
 
-        // Activity приложения
         options.setAppActivity(
                 "com.example.android.architecture.blueprints.todoapp.TodoActivity"
         );
@@ -44,14 +42,12 @@ public class TodoAppTest {
     @DisplayName("Создание новой задачи")
     void shouldCreateNewTask() {
 
-        // Шаг 1. Нажимаем кнопку добавления задачи
         WebElement addTaskButton = driver.findElement(
                 AppiumBy.accessibilityId("Add task")
         );
 
         addTaskButton.click();
 
-        // Шаг 2. Вводим название задачи
         WebElement titleInput = driver.findElement(
                 AppiumBy.className("android.widget.EditText")
         );
@@ -60,14 +56,12 @@ public class TodoAppTest {
 
         titleInput.sendKeys(taskTitle);
 
-        // Шаг 3. Сохраняем задачу
         WebElement saveButton = driver.findElement(
                 AppiumBy.accessibilityId("Save")
         );
 
         saveButton.click();
 
-        // Шаг 4. Проверяем, что задача появилась в списке
         WebElement createdTask = driver.findElement(
                 AppiumBy.xpath(
                         "//*[@text='" + taskTitle + "']"
