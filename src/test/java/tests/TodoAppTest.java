@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.*;
 
 import org.openqa.selenium.WebElement;
+import java.time.Duration;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,6 +37,8 @@ public class TodoAppTest {
                 new URL("http://127.0.0.1:4723"),
                 options
         );
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Test
