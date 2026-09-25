@@ -43,7 +43,7 @@ public class TodoAppTest {
     void shouldCreateNewTask() {
 
         WebElement addTaskButton = driver.findElement(
-                AppiumBy.accessibilityId("Add task")
+                AppiumBy.accessibilityId("New Task")
         );
 
         addTaskButton.click();
