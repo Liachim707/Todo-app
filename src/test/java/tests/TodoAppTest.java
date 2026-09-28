@@ -33,6 +33,10 @@ public class TodoAppTest {
 
         options.setDeviceName("Android Emulator");
 
+        options.setNoReset(true);
+        options.setAdbExecTimeout(Duration.ofSeconds(60));
+        options.setUiautomator2ServerLaunchTimeout(Duration.ofSeconds(60));
+
         driver = new AndroidDriver(
                 new URL("http://127.0.0.1:4723"),
                 options
@@ -60,7 +64,7 @@ public class TodoAppTest {
         titleInput.sendKeys(taskTitle);
 
         WebElement saveButton = driver.findElement(
-                AppiumBy.accessibilityId("Save")
+                AppiumBy.accessibilityId("Save task")
         );
 
         saveButton.click();
